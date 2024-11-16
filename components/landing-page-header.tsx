@@ -1,7 +1,6 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { useStackApp, useUser } from "@stackframe/stack";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
@@ -20,48 +19,16 @@ interface NavProps {
 }
 
 function SignInSignUpButtons() {
-  const app = useStackApp();
   return (
     <>
-      <Link
-        href={app.urls.signIn}
-        className={buttonVariants({ variant: "secondary" })}
-      >
+      <Link href={""} className={buttonVariants({ variant: "secondary" })}>
         Sign In
       </Link>
 
-      <Link
-        href={app.urls.signUp}
-        className={buttonVariants({ variant: "default" })}
-      >
+      <Link href={""} className={buttonVariants({ variant: "default" })}>
         Sign Up
       </Link>
     </>
-  );
-}
-
-function AuthButtonsInner() {
-  const user = useUser();
-
-  if (user) {
-    return (
-      <Link
-        href="/dashboard"
-        className={buttonVariants({ variant: "default" })}
-      >
-        Dashboard
-      </Link>
-    );
-  } else {
-    return <SignInSignUpButtons />;
-  }
-}
-
-function AuthButtons() {
-  return (
-    <React.Suspense fallback={<SignInSignUpButtons />}>
-      <AuthButtonsInner />
-    </React.Suspense>
   );
 }
 
@@ -85,9 +52,7 @@ function MobileItems(props: NavProps) {
             </Link>
           ))}
 
-          <div className="flex flex-col gap-2 mt-4">
-            <AuthButtons />
-          </div>
+          <div className="flex flex-col gap-2 mt-4"></div>
         </nav>
       </div>
     </div>
@@ -127,33 +92,11 @@ export function LandingPageHeader(props: NavProps) {
     <header className="fixed w-full z-50 bg-background/80 px-4 md:px-8 backdrop-blur">
       <div className="flex h-18 items-center justify-between py-4">
         <div className="flex items-center gap-4 md:gap-10">
-          <Logo className="hidden md:flex" />
+          <Logo className="flex" />
 
           {props.items?.length ? <DesktopItems items={props.items} /> : null}
 
-          <Button
-            className="space-x-2 md:hidden"
-            variant="ghost"
-            size="icon"
-            onClick={() => setShowMobileMenu(!showMobileMenu)}
-          >
-            {showMobileMenu ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
-          </Button>
-
-          <Logo className="md:hidden" />
-
           {showMobileMenu && props.items && <MobileItems items={props.items} />}
-        </div>
-
-        <div className="flex gap-4 items-center">
-          <ColorModeSwitcher />
-          <nav className="gap-4 items-center hidden md:flex">
-            <AuthButtons />
-          </nav>
         </div>
       </div>
     </header>

@@ -1,9 +1,7 @@
-import { PageClient } from "./page-client";
-
 export const metadata = {
-  title: "Dashboard - Stack Template",
+  title: "Brew Loyalty",
 };
 
 export default function Dashboard() {
-  return <PageClient />;
+  return <></>;
 }
