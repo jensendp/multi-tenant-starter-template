@@ -155,7 +155,7 @@ export default function IndexPage() {
             type="submit"
             className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none"
           >
-            Let's Brew Loyalty!
+            Let&apos;s Brew Loyalty!
           </button>
         </form>
       </div>
