@@ -8,7 +8,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Brew Loyalty",
-  description: "A Multi-tenant Next.js Starter Template",
+  description:
+    "A fully customized loyalty program designed specifically for local small breweries and tap rooms.",
 };
 
 export default function RootLayout({
